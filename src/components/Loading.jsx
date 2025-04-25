@@ -16,7 +16,7 @@ const Loading = () => {
       }}
     >
       <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[80px] leading-[80px] w-full">
-        <span className="text-gradient">Bob</span>
+        <span className="text-gradient">Bop</span>
       </h1>
     </motion.div>
   );

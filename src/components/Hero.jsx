@@ -47,10 +47,10 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* Unified Let's Connect button at the bottom */}
+        {/* Unified Let's Connect button at the bottom
         <div className="mt-10">
           <LetsConnect />
-        </div>
+        </div> */}
       </div>
 
       {/* Animation */}

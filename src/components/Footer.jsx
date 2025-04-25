@@ -1,66 +1,78 @@
-import React from "react";
-import Button from "./Button";
-import { socialMedia, aboutMe } from "../constants";
-import { profilePic } from "../assets";
-import { layout } from "../style";
-import { resumeLink, repoLink } from "../constants";
-import { AiFillGithub } from "react-icons/ai";
+import React, { useRef } from "react";
+import { HiOutlineArrowTrendingUp as Arrow } from "react-icons/hi2";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const Footer = () => (
-  <footer id="contactMe" className="bg-gray-900 sm:px-16 px-6">
-    <div
-      className={`${layout.sectionReverse} xl:max-w-[1280px] w-full mx-auto gap-y-4 `}
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const Footer = () => {
+  const footerRef = useRef();
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: footerRef.current, start: "top 80%" },
+      });
+
+      tl.from(".footer-text1", {
+        opacity: 0,
+        y: 50,
+      }).from(".footer-text2", {
+        opacity: 0,
+        y: 20,
+        stagger: 0.2,
+      });
+    },
+    { scope: footerRef }
+  );
+
+  return (
+    <footer
+      id="contactMe"
+      ref={footerRef}
+      className="text-white px-[10%] mt-[50px] gap-[50px] vsm:h-screen py-[50px] flex flex-col justify-between"
     >
-      <div className={` ${layout.sectionInfo}`}>
-        <h2 className="text-xl font-bold text-gray-800 font-poppins dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
-          {aboutMe.name}
-        </h2>
-        <p
-          className={`font-poppins font-normal text-dimWhite text-[16px] leading-[30.8px] max-w-[470px] mt-5`}
+      <h1 className="footer-text1 text-left vsm:text-center text-[4rem] lg:text-[7rem] font-extrabold leading-none">
+        Let's Connect
+      </h1>
+
+      <div className="w-full">
+        <a
+          href="https://t.me/boptheweb"
+          target="blank"
+          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
         >
-          {aboutMe.tagLine}
-        </p>
-        <div className="flex flex-row mt-4">
-          {socialMedia.map((social, index) => (
-            <a
-              href={social.link}
-              target="_blank"
-              key={social.id}
-              index={index}
-              className="text-white mr-5 text-[25px] hover:text-teal-200"
-            >
-              {React.createElement(social.icon)}
-            </a>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-2">
-          {/* styles is a prop */}
-          <a href={resumeLink} target="_blank">
-            <Button styles="mt-10 mr-3" text="Resume" icon="AiFillGithub" />
-          </a>
-          <a href={repoLink} target="_blank">
-            <Button
-              styles="mt-10 inline-flex items-center justify-center"
-              text="Star"
-              icon={AiFillGithub}
-            />
-          </a>
-        </div>
+          <p className="text-[3rem]">Telegram</p>
+          <Arrow />
+        </a>
+        <a
+          href="https://x.com/boptheweb"
+          target="blank"
+          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
+        >
+          <p className="text-[3rem]">Twitter</p>
+          <Arrow />
+        </a>
+        <a
+          href="mailto:boptheweb@gmail.com"
+          target="blank"
+          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
+        >
+          <p className="text-[3rem]">Mail</p>
+          <Arrow />
+        </a>
+        <a
+          href="https://github.com"
+          target="blank"
+          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
+        >
+          <p className="text-[3rem]">Github</p>
+          <Arrow />
+        </a>
       </div>
-
-      {/* <div className="md:ml-auto mt-10 md:mt-0">
-        <img
-          src={profilePic}
-          alt="Bob"
-          className="w-[200px] h-[200px] border-2 border-teal-200 relative z-[5] rounded-full"
-        />
-      </div> */}
-    </div>
-    <div className="text-center font-poppins font-normal text-dimWhite text-xs sm:text-sm pb-4">
-      <p>Made with 💙 by Bob</p>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;
