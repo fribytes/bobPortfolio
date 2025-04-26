@@ -32,7 +32,7 @@ const Navbar = () => {
       </ul>
 
       {/* only for mobile devices, created separately */}
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+      <div className="sm:hidden z-[999] flex flex-1 justify-end items-center">
         {/* shows toggle icon based on its state */}
         <img
           src={toggle ? close : menu}
