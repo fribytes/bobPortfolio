@@ -70,7 +70,7 @@ const Footer = () => {
           <Arrow className="text-[2.5rem]" />
         </motion.a>
         <motion.a
-          href="https://discord.gg/boptheweb"
+          href="https://discord.com/users/boptheweb"
           target="_blank"
           rel="noopener noreferrer"
           variants={itemVariants}
