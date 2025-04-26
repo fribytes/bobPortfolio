@@ -40,7 +40,7 @@ const Hero = () => {
           <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
             Frontend and Full-Stack Tech Stack:{" "}
             <span className="font-medium">
-              React.js, Next.js, React Native, Expo, Tailwind CSS, Node.js,
+              React.js, Next.js, React Native, Expo, Flutter, Tailwind CSS, Node.js,
               Express.js, Firebase, Web3.js, Ethers.js, Redux Toolkit, Tanstack
               Query, and REST APIs.
             </span>

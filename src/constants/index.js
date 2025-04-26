@@ -134,8 +134,8 @@ export const navLinks = [
     title: "Skills & Experience",
   },
   // {
-  //   id: "education",
-  //   title: "Education",
+  //   id: "Loader",
+  //   title: "Loader",
   // },
   // {
   //   id: "achievements",
@@ -159,9 +159,9 @@ export const navLinks = [
   },
 ];
 
-export const educationList = [
+export const LoaderList = [
   {
-    id: "education-1",
+    id: "Loader-1",
     icon: iiot,
     title: "Illinois Institute of Technology",
     degree: "Bachelor of Computer Science",

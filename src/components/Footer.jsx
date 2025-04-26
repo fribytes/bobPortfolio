@@ -1,77 +1,86 @@
-import React, { useRef } from "react";
+import React from "react";
 import { HiOutlineArrowTrendingUp as Arrow } from "react-icons/hi2";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 const Footer = () => {
-  const footerRef = useRef();
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: footerRef.current, start: "top 80%" },
-      });
-
-      tl.from(".footer-text1", {
-        opacity: 0,
-        y: 50,
-      }).from(".footer-text2", {
-        opacity: 0,
-        y: 20,
-        stagger: 0.2,
-      });
-    },
-    { scope: footerRef }
-  );
-
   return (
-    <footer
+    <motion.footer
       id="contactMe"
-      ref={footerRef}
       className="text-white px-[10%] mt-[50px] gap-[50px] vsm:h-screen py-[50px] flex flex-col justify-between"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
     >
-      <h1 className="footer-text1 text-left vsm:text-center text-[4rem] lg:text-[7rem] font-extrabold leading-none">
+      <motion.h1
+        variants={itemVariants}
+        className="text-left vsm:text-center text-[4rem] lg:text-[7rem] font-extrabold leading-none"
+      >
         Let's Connect
-      </h1>
+      </motion.h1>
 
-      <div className="w-full">
-        <a
+      <motion.div
+        variants={containerVariants}
+        className="w-full flex flex-col gap-2"
+      >
+        <motion.a
           href="https://t.me/boptheweb"
-          target="blank"
-          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={itemVariants}
+          className="flex items-center gap-2 py-2 border-b border-gray-600"
         >
           <p className="text-[3rem]">Telegram</p>
-          <Arrow />
-        </a>
-        <a
+          <Arrow className="text-[2.5rem]" />
+        </motion.a>
+        <motion.a
           href="https://x.com/boptheweb"
-          target="blank"
-          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={itemVariants}
+          className="flex items-center gap-2 py-2 border-b border-gray-600"
         >
           <p className="text-[3rem]">Twitter</p>
-          <Arrow />
-        </a>
-        <a
+          <Arrow className="text-[2.5rem]" />
+        </motion.a>
+        <motion.a
           href="mailto:boptheweb@gmail.com"
-          target="blank"
-          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={itemVariants}
+          className="flex items-center gap-2 py-2 border-b border-gray-600"
         >
           <p className="text-[3rem]">Mail</p>
-          <Arrow />
-        </a>
-        <a
-          href="https://github.com"
-          target="blank"
-          className="footer-text2 flex gap-[5px] py-[2px] border-b border-b-[gray]"
+          <Arrow className="text-[2.5rem]" />
+        </motion.a>
+        <motion.a
+          href="https://discord.gg/boptheweb"
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={itemVariants}
+          className="flex items-center gap-2 py-2 border-b border-gray-600"
         >
-          <p className="text-[3rem]">Github</p>
-          <Arrow />
-        </a>
-      </div>
-    </footer>
+          <p className="text-[3rem]">Discord</p>
+          <Arrow className="text-[2.5rem]" />
+        </motion.a>
+      </motion.div>
+    </motion.footer>
   );
 };
 

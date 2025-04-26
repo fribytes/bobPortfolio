@@ -5,7 +5,7 @@ import styles from "./style";
 import {
   Navbar,
   Hero,
-  Education,
+  Loader,
   SkillsAndExperience,
   ExtraCurricular,
   Footer,
@@ -29,7 +29,7 @@ const App = () => {
     <div className="bg-primary w-full overflow-hidden">
       <AnimatePresence>
         {isLoading ? (
-          <Loading key="loading" />
+          <Loader />
         ) : (
           <motion.section
             key="content"
@@ -52,19 +52,13 @@ const App = () => {
             <div
               className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
             >
-              <div className={`${styles.boxWidth}`}>
-                {/* <SkillsAndExperience /> */}
-                {/* <Education /> */}
-              </div>
+              <div className={`${styles.boxWidth}`}></div>
             </div>
-            {/* <Achievements /> */}
             <div
               className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
             >
               <div className={`${styles.boxWidth}`}>
                 <Projects />
-                {/* <OpenSource /> */}
-                {/* <ExtraCurricular /> */}
               </div>
             </div>
             <Footer />

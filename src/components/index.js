@@ -2,7 +2,7 @@
 // exports them from one place to make code more readable
 import Navbar from "./Navbar";
 import Hero from "./Hero";
-import Education from "./Education";
+import Loader from "./Loader";
 import SkillsAndExperience from "./SkillsAndExperience";
 import Projects from "./Projects";
 import ExtraCurricular from "./ExtraCurricular";
@@ -13,18 +13,17 @@ import Loading from "./Loading";
 import BlogPosts from "./BlogPosts";
 import Achievements from "./Achievements";
 
-
 export {
-    Navbar,
-    Hero,
-    Education,
-    SkillsAndExperience,
-    Projects,
-    ExtraCurricular,
-    Footer,
-    Button,
-    Stats,
-    Loading,
-    BlogPosts,
-    Achievements,
+  Navbar,
+  Hero,
+  Loader,
+  SkillsAndExperience,
+  Projects,
+  ExtraCurricular,
+  Footer,
+  Button,
+  Stats,
+  Loading,
+  BlogPosts,
+  Achievements,
 };
